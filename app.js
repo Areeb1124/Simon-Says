@@ -6,14 +6,26 @@ let btns=["yellow","red","purple","green"];
 let started=false;
 let level=0;
 let h2=document.querySelector("h2");
+let startBtn = document.getElementById("start-btn");
 
-document.addEventListener("keypress",function(){
-    if(started == false){
+document.addEventListener("keypress", startGame);
+startBtn.addEventListener("click", startGame);
+
+function startGame() {
+    if (started == false) {
         console.log("game started");
-        started=true;
+        started = true;
         levelUp();
+        startBtn.style.display = "none"; // Hide the start button after game starts
     }
-})
+}
+// document.addEventListener("keypress",function(){
+//     if(started == false){
+//         console.log("game started");
+//         started=true;
+//         levelUp();
+//     }
+// })
 
 function gameFlash(btn){
   btn.classList.add("flash");
